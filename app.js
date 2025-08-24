@@ -2,9 +2,9 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-import authRouter from "./routes/auth.js";
-import leadRouter from "./routes/lead.js";
-import connectDB from "./db/connectDB.js";
+import authRouter from "./server/routes/auth.js";
+import leadRouter from "./server/routes/lead.js";
+import connectDB from "./server/db/connectDB.js";
 
 dotenv.config();
 
