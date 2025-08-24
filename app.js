@@ -5,8 +5,10 @@ import cookieParser from "cookie-parser";
 import authRouter from "./server/routes/auth.js";
 import leadRouter from "./server/routes/lead.js";
 import connectDB from "./server/db/connectDB.js";
+import path from "path";
 
 dotenv.config();
+const __dirname = path.resolve();
 
 const app = express();
 
