@@ -2,9 +2,9 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-import authRouter from "./server/routes/auth.js";
-import leadRouter from "./server/routes/lead.js";
-import connectDB from "./server/db/connectDB.js";
+import authRouter from "./routes/auth.js";
+import leadRouter from "./routes/lead.js";
+import connectDB from "./db/connectDB.js";
 import path from "path";
 
 dotenv.config();
@@ -23,11 +23,15 @@ app.use(cookieParser());
 
 app.use("/auth", authRouter);
 app.use("/leads", leadRouter);
+// app.get("/", (req, res) => {
+//   res.send("Backend is running");
+// });
 
-if (process.env.NODE_ENV === "production") { 
+
+if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "/client/dist")));
 
-  app.get("*", (_, res) => {
+  app.get("/{*any}", (_, res) => {
     res.sendFile(path.resolve(__dirname, "client", "dist", "index.html"));
   });
 }
