@@ -63,7 +63,7 @@ const LeadGrid = ({ backendUrl, page, limit, filters, onTotalChange }) => {
     { field: "status", flex: 1 },
     { headerName: "Qualified", field: "is_qualified", flex: 1, valueFormatter: (p) => (p.value ? "Yes" : "No") },
     { field: "score", flex: 1 },
-    { headerName: "Lead Value", field: "lead_value", flex: 1, valueFormatter: (p) => `$${Number(p.value || 0).toLocaleString()}` },
+    { headerName: "Lead Value", field: "lead_value", flex: 1, valueFormatter: (p) => `₹ ${Number(p.value || 0).toLocaleString()}` },
     {
       headerName: "Actions",
       flex: 1,
