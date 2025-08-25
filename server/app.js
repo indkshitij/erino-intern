@@ -31,7 +31,7 @@ app.use("/leads", leadRouter);
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "/client/dist")));
 
-  app.get("/{*any}", (_, res) => {
+  app.get("*", (_, res) => {
     res.sendFile(path.resolve(__dirname, "client", "dist", "index.html"));
   });
 }
