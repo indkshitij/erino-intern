@@ -21,8 +21,8 @@ app.use(
 app.use(express.json());
 app.use(cookieParser());
 
-app.use("/auth", authRouter);
-app.use("/leads", leadRouter);
+app.use("/api/auth", authRouter);
+app.use("/api/leads", leadRouter);
 // app.get("/", (req, res) => {
 //   res.send("Backend is running");
 // });
@@ -31,7 +31,7 @@ app.use("/leads", leadRouter);
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "/client/dist")));
 
-  app.get("*", (_, res) => {
+  app.get("/{*any}", (_, res) => {
     res.sendFile(path.resolve(__dirname, "client", "dist", "index.html"));
   });
 }
